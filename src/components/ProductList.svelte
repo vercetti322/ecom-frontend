@@ -1,92 +1,50 @@
 <script>
     import ProductCard from "./ProductCard.svelte";
     import { onMount } from 'svelte';
-    // let newProducts = [];
-    // let error = null;
+    
+    let rawProducts = [];
+    let products = [];
+    let error = null;
 
-    // onMount(async () => {
-    //     try {
-    //         const response = await fetch('http://localhost:8090/api/products/preview')
-    //         if (!response.ok) {
-    //             throw new Error('Network response was not ok');
-    //         }
+    onMount(async () => {
+        try {
+            const baseUrl = 'http://localhost:8080';
+            const path = window.location.pathname; 
+            let response;
+            if (path === '/') {
+                response = await fetch('http://localhost:8090/api/products/preview');
+            } else if (path === '/categories') {
+                response = await fetch('http://localhost:8090/api/products/category');
+            } 
             
-    //         const data = await response.json();
-    //         newProducts = data;
-    //         console.log(newProducts);
-    //     } catch (err) {
-    //         error = err.message;
-    //     }
-    // })
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            
+            const data = await response.json();
+            rawProducts = data;
+            
+            // Update the products array based on the fetched rawProducts
+            products = rawProducts.map(product => ({
+                image: product.productKey.image,
+                prodName: `${product.productKey.name} (${product.brand})`,
+                price: `$${product.price}`,
+                rating: product.rating
+            }));
 
-
-    let products = [
-        {
-            image: '../Images/product-1.webp',
-            name: 'Product 1',
-            price: '$20',
-            rating: '4'
-        },
-
-        {
-            image: '../Images/product-2.webp',
-            name: 'Product 2',
-            price: '$200',
-            rating: '3'
-        },
-
-        {
-            image: '../Images/product-3.webp',
-            name: 'Product 3',
-            price: '$10',
-            rating: '1'
-        },
-
-        {
-            image: '../Images/product-3.webp',
-            name: 'Product 3',
-            price: '$10',
-            rating: '1'
-        },
-
-        {
-            image: '../Images/product-1.webp',
-            name: 'Product 1',
-            price: '$20',
-            rating: '4'
-        },
-
-        {
-            image: '../Images/product-2.webp',
-            name: 'Product 2',
-            price: '$200',
-            rating: '3'
-        },
-
-        {
-            image: '../Images/product-3.webp',
-            name: 'Product 3',
-            price: '$10',
-            rating: '1'
-        },
-
-        {
-            image: '../Images/product-3.webp',
-            name: 'Product 3',
-            price: '$10',
-            rating: '1'
+        } catch (err) {
+            error = err.message;
         }
-    ]
+    });
 </script>
 
 <div class="product-list">
     {#each products as product}
         <ProductCard
             image={product.image}
-            name={product.name}
+            prodName={product.prodName}
             price={product.price}
             rating={product.rating}
-            id={product.id}
         />
     {/each}
 </div>

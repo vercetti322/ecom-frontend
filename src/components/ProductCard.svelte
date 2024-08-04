@@ -1,56 +1,47 @@
 <script>
     import RatingCard from "./RatingCard.svelte";
-    export let image = 'image';
-    export let name = 'name';
-    export let price = 'price';
-    export let rating = 'rating';
-    export let id = 10019;
-
-    let productInfo;
-    
-    const fetchDetails = async () => {
-        let error = null;
-        try {
-            const response = await fetch(`http://localhost:8090/api/products/${id}`);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const data = await response.json();
-            productInfo = data;
-            console.log(productInfo);
-        } catch (err) {
-            error = err.message;
-            console.error('Error fetching product details:', error);
-        }
-    };
+    export let image;
+    export let prodName;
+    export let price;
+    export let rating;
 </script>
 
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="product-card" on:click={fetchDetails}>
-        <div 
-            class="product-img" 
-            style="
-                background-image: url('{image}');
-                background-size: contain;
-                border-radius: 7.5px 7.5px 0 0;
-            "
-        ></div>
-        <div class="product-name">{name}</div>
-        <div class="product-price">{price}</div>
-        <div 
-            class="product-rating" 
-            style="
-                border-radius: 0 0 7.5px 7.5px;
-                font-size: 13px;
-                font-weight: 700;
-            "
-        >
-            {rating}/5
-            <RatingCard {rating}/>
+    <a href="http://localhost:8080/#/product/{prodName}" class="card">
+        <div class="product-card">
+            <div 
+                class="product-img" 
+                style="
+                    background-image: url('{image}');
+                    background-size: cover;
+                    border-radius: 7.5px 7.5px 0 0;
+                "
+            ></div>
+            <div class="product-name"
+                style="font-size: 12px;"
+            >
+            {prodName}</div>
+            <div class="product-price"
+                style="font-size: 14px; font-weight: bold"
+            >{price}</div>
+            <div 
+                class="product-rating" 
+                style="
+                    border-radius: 0 0 7.5px 7.5px;
+                    font-size: 13px;
+                    font-weight: 700;
+                "
+            >
+                {rating}/5
+                <RatingCard {rating}/>
+            </div>
         </div>
-    </div>
-
+    </a>
 <style>
+    .card {
+        text-decoration: none;
+        color: black;
+    }
     .product-card {
         display: grid;
         grid-template-rows: 6fr 1fr 1fr 1fr; 

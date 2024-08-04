@@ -3,9 +3,9 @@
 	import ProductList from "./ProductList.svelte";
 	import { onMount } from 'svelte';
 	import LoadingSpinner from "./LoadingSpinner.svelte";
+	import HomeIntro from "./HomeIntro.svelte"
 
 	let isLoading = true;
-
     onMount(() => {
         setTimeout(() => {
             isLoading = false;
@@ -19,6 +19,7 @@
 	{:else}
 		<Navbar/>
 		<div class="main-content">
+			<HomeIntro/>
 			<ProductList/>
 		</div>
 	{/if}

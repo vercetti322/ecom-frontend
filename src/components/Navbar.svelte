@@ -1,17 +1,17 @@
 <script>
-    let numItems = 0;
+    $: numItems = 0;
 </script>
 
 <nav class="ecom-nav">
-    <a href="#home" class="ecom-brand">
-        <img src="./Images/logo.png" alt="logo" class="ecom-logo">
+    <a href="http://localhost:8080/#/" class="ecom-brand">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <img src="./Images/Background/logo.png" alt="logo" class="ecom-logo">
     </a>
     <ul class="ecom-quick-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="https://example.com/about">About</a></li>
-        <li><a href="https://example.com/categories">Categories</a></li>
-        <li><a href="https://example.com/contact">Contact</a></li>
-        <li><a href="https://example.com/cart-info">Cart ({numItems})</a></li>
+        <li><a href="http://localhost:8080/#/">Home</a></li>
+        <li><a href="http://localhost:8080/#/about">About</a></li>
+        <li><a href="http://localhost:8080/#/categories">Categories</a></li>
+        <li><a href="http://localhost:8080/#/cart-info">Cart ({numItems})</a></li>
     </ul>
 </nav>
 
@@ -25,7 +25,7 @@
         padding-top: 45px;
         padding-bottom: 15px;
         position: relative;
-        background-image: url('../Images/wave.png');
+        background-image: url('../Images/Background/wave.png');
         background-size: contain;
     }
 

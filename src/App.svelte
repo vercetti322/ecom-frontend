@@ -1,21 +1,38 @@
 <script>
-	import Navbar from "./components/Navbar.svelte";
-	import ProductList from "./components/ProductList.svelte";
-	import HomeIntro from "./components/HomeIntro.svelte";
+  	import Category from "./components/Category.svelte";
+	import Home from "./components/Home.svelte";
+	import Cart from "./components/Cart.svelte";
+	import Router from "svelte-spa-router";
+  	import About from "./components/About.svelte";
+  	import Product from "./components/Product.svelte";
+	import { onMount } from 'svelte';
+	import LoadingSpinner from "./components/LoadingSpinner.svelte";
+
+	let isLoading = true;
+
+    onMount(() => {
+        setTimeout(() => {
+            isLoading = false;
+        }, 900);
+    });
+
+	let routes = {
+		"/": Home,
+		"/categories": Category,
+		"/cart-info": Cart,
+		"/about": About,
+		"/product/:prodName": Product
+	}
 </script>
 
 <main>
-	<Navbar/>
-	<div class="main-content">
-		<HomeIntro/>
-		<ProductList/>
-	</div>
+	{#if isLoading}
+		<LoadingSpinner message="Loading page content..." />
+	{:else}
+		<Router {routes} />
+	{/if}
 </main>
 
 <style>
-	.main-content {
-		display: flex;
-		flex-direction: column;
-        align-items: center;
-	}
+	
 </style>
