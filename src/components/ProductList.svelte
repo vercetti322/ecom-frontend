@@ -25,21 +25,56 @@
             image: '../Images/product-1.webp',
             name: 'Product 1',
             price: '$20',
-            rating: '4.5/5'
+            rating: '4'
         },
 
         {
             image: '../Images/product-2.webp',
             name: 'Product 2',
             price: '$200',
-            rating: '3.5/5'
+            rating: '3'
         },
 
         {
             image: '../Images/product-3.webp',
             name: 'Product 3',
             price: '$10',
-            rating: '1.5/5'
+            rating: '1'
+        },
+
+        {
+            image: '../Images/product-3.webp',
+            name: 'Product 3',
+            price: '$10',
+            rating: '1'
+        },
+
+        {
+            image: '../Images/product-1.webp',
+            name: 'Product 1',
+            price: '$20',
+            rating: '4'
+        },
+
+        {
+            image: '../Images/product-2.webp',
+            name: 'Product 2',
+            price: '$200',
+            rating: '3'
+        },
+
+        {
+            image: '../Images/product-3.webp',
+            name: 'Product 3',
+            price: '$10',
+            rating: '1'
+        },
+
+        {
+            image: '../Images/product-3.webp',
+            name: 'Product 3',
+            price: '$10',
+            rating: '1'
         }
     ]
 </script>
@@ -58,9 +93,10 @@
 
 <style>
     .product-list {
+        margin: 5px;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5px;
-        padding: 5px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        padding: 1px;
     }
 </style>

@@ -23,7 +23,6 @@
         height: 60px;
         padding-left: 15px;
         padding-top: 45px;
-        background-color: #ADD8E6;
         padding-bottom: 15px;
         position: relative;
         background-image: url('../Images/wave.png');
@@ -31,12 +30,12 @@
     }
 
     .ecom-logo {
-        padding-top: 10px;
-        padding-right: 15px;
+        margin-top: 35px;
+        margin-right: 15px;
         height: auto;
         width: 120px;
         object-fit: contain;
-        background: none;
+        border-radius: 100%;
     }
 
     .ecom-nav ul li {

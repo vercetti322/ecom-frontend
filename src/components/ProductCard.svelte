@@ -1,4 +1,5 @@
 <script>
+    import RatingCard from "./RatingCard.svelte";
     export let image = 'image';
     export let name = 'name';
     export let price = 'price';
@@ -24,6 +25,7 @@
     };
 </script>
 
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="product-card" on:click={fetchDetails}>
         <div 
             class="product-img" 
@@ -37,9 +39,14 @@
         <div class="product-price">{price}</div>
         <div 
             class="product-rating" 
-            style="border-radius: 0 0 7.5px 7.5px;"
+            style="
+                border-radius: 0 0 7.5px 7.5px;
+                font-size: 13px;
+                font-weight: 700;
+            "
         >
-            {rating}
+            {rating}/5
+            <RatingCard {rating}/>
         </div>
     </div>
 
@@ -50,21 +57,22 @@
         margin: 40px;
         border: none;
         border-radius: 7.5px;
-        height: 250px;
+        height: 215px;
         overflow: hidden;
-        width: 210px;
+        width: 175px;
         box-shadow: 0 0 10px #73bbd2;
-        transition: transform 0.45s ease; 
+        transition: transform 0.15s ease; 
     }
 
     .product-card > div {
-        padding: 5px;
-        background-color: #f5b235;
-        color: black;
+        padding: 2.5px;
+        margin: 0;
+        background-color: rgb(255, 178, 36);
     }
 
     .product-card:hover {
-        transform: scale(1.10); /* Slightly increase size */
+        background-color: rgb(255, 178, 36);
+        transform: scale(1.20); /* Slightly increase size */
         cursor: pointer;
     }
 </style>

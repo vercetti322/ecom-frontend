@@ -4,11 +4,17 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	background-color: #ADD8E6;
+	/* background-color: #ADD8E6; */
 }
 
 body {
-	font-family: 'Exo 2', sans-serif;
-	background-color: #ADD8E6;
-
+    font-family: 'Exo 2', sans-serif;
+    background-color: #45c0e9; /* Overlay color */
+    background-image: url('./Images/background.jpg');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-position: center; /* Centers the background image */
+    background-attachment: fixed; /* Ensures the background image is fixed in place */
+    background-blend-mode: overlay; /* Blends the background color with the image */
 }
+
