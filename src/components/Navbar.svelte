@@ -8,10 +8,10 @@
     </a>
     <ul class="ecom-quick-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#categories">Categories</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#cart">Cart ({numItems})</a></li>
+        <li><a href="https://example.com/about">About</a></li>
+        <li><a href="https://example.com/categories">Categories</a></li>
+        <li><a href="https://example.com/contact">Contact</a></li>
+        <li><a href="https://example.com/cart-info">Cart ({numItems})</a></li>
     </ul>
 </nav>
 
@@ -23,7 +23,7 @@
         height: 60px;
         padding-left: 15px;
         padding-top: 45px;
-        background-color: #FFE5B4;
+        background-color: #ADD8E6;
         padding-bottom: 15px;
         position: relative;
         background-image: url('../Images/wave.png');
