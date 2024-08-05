@@ -4,10 +4,14 @@
     export let prodName;
     export let price;
     export let rating;
+    const baseUrl = 'http://localhost:8080'
+    let encodedProdName = encodeURIComponent(prodName);
+    let encodedImage = encodeURIComponent(image);
+    console.log(`${baseUrl}/#/product/${encodedProdName}/${encodedImage}`);
 </script>
 
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <a href="http://localhost:8080/#/product/{prodName}" class="card">
+    <a href="{baseUrl}/#/product/{encodedProdName}/{encodedImage}" class="card">
         <div class="product-card">
             <div 
                 class="product-img" 

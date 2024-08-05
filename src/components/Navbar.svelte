@@ -1,17 +1,18 @@
 <script>
     $: numItems = 0;
+    const baseUrl = 'http://localhost:8080'
 </script>
 
 <nav class="ecom-nav">
-    <a href="http://localhost:8080/#/" class="ecom-brand">
+    <a href="{baseUrl}" class="ecom-brand">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <img src="./Images/Background/logo.png" alt="logo" class="ecom-logo">
     </a>
     <ul class="ecom-quick-links">
-        <li><a href="http://localhost:8080/#/">Home</a></li>
-        <li><a href="http://localhost:8080/#/about">About</a></li>
-        <li><a href="http://localhost:8080/#/categories">Categories</a></li>
-        <li><a href="http://localhost:8080/#/cart-info">Cart ({numItems})</a></li>
+        <li><a href="{baseUrl}">Home</a></li>
+        <li><a href="{baseUrl}/#/about">About</a></li>
+        <li><a href="{baseUrl}/#/categories">Categories</a></li>
+        <li><a href="{baseUrl}/#/cart-info">Cart ({numItems})</a></li>
     </ul>
 </nav>
 
