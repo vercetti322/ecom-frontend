@@ -23,7 +23,7 @@
                 // Update the products array based on the fetched rawProducts
                 products = rawProducts.map(product => ({
                     image: product.productKey.image,
-                    prodName: `${product.productKey.name} (${product.brand})`,
+                    prodName: `${product.productKey.name} (${product.productKey.category})`,
                     price: `$${product.price}`,
                     rating: product.rating
                 }));
@@ -41,7 +41,7 @@
                 products = Object.keys(rawProducts).reduce((acc, key) => {
                     acc[key] = rawProducts[key].map(product => ({
                         image: product.productKey.image,
-                        prodName: `${product.productKey.name} (${product.category})`,
+                        prodName: `${product.productKey.name} (${product.productKey.category})`,
                         price: `$${product.price}`,
                         rating: product.rating
                     }));

@@ -2,11 +2,26 @@
     import Navbar from "./Navbar.svelte";
     import { onMount } from 'svelte';
     import LoadingSpinner from "./LoadingSpinner.svelte";
+	import ProductInfo from "./ProductInfo.svelte";
 
     export let params;
     let prodName = decodeURIComponent(params.prodName);
     let image = decodeURIComponent(params.image);
-	console.log(params);
+	const backendUrl = "http://localhost:8090/api/products"
+
+	let parts = prodName.split(" (");
+	let productName = parts[0];
+	let productCategory = parts[1].replace(")", "");
+	let data;
+
+	onMount(async () => {
+		const response = await fetch(`${backendUrl}/${productCategory}/${productName}?image=${encodeURIComponent(image)}`);
+		if (!response.ok) {
+			throw new Error("network error while fetching data...");
+		}
+
+		data = await response.json();
+	})
 
     let isLoading = true;
     onMount(() => {
@@ -21,17 +36,10 @@
         <LoadingSpinner message="Loading page content..." />
     {:else}
         <Navbar/>
-        <div class="main-content">
-            <h3>{prodName}</h3>
-            <img src={`${image}`} alt={prodName} />
-        </div>
+        <ProductInfo {data}/>
     {/if}
 </main>
 
 <style>
-    .main-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+   
 </style>

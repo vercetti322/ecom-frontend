@@ -1,5 +1,9 @@
 <script>
     $: numItems = 0;
+    function incrementItems() {
+        numItems += 1;
+    }
+
     const baseUrl = 'http://localhost:8080'
 </script>
 

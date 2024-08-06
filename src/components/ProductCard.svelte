@@ -7,7 +7,6 @@
     const baseUrl = 'http://localhost:8080'
     let encodedProdName = encodeURIComponent(prodName);
     let encodedImage = encodeURIComponent(image);
-    console.log(`${baseUrl}/#/product/${encodedProdName}/${encodedImage}`);
 </script>
 
     <!-- svelte-ignore a11y-click-events-have-key-events -->
