@@ -4,7 +4,6 @@
     import RatingCard from "./RatingCard.svelte";
     let isClicked = false;
 
-    export let numItems;
 
     function handleClick() {
         if (!isClicked) {
